@@ -10,7 +10,7 @@ WORKDIR /opt
 RUN mkdir -p logs/nginx
 RUN mkdir -p logs/uwsgi
 
-RUN cat ngixn.conf >> /etc/nginx/nginx.conf
+RUN cat nginx.conf >> /etc/nginx/nginx.conf
 RUN pip install -r requirements.txt
 
 RUN python manage.py migrate
