@@ -2,12 +2,14 @@
 from rest_framework.exceptions import APIException
 from rest_framework.response import Response
 from rest_framework.views import APIView
+
+from django_rest_swagger_demo.mixins import RequestLogViewMixin
 from .models import ResourceModel
 
 
 # Create your views here.
 
-class Resource(APIView):
+class Resource(RequestLogViewMixin, APIView):
     def get(self, request):
         """
             获取资源
@@ -19,8 +21,10 @@ class Resource(APIView):
                   type: string
                   paramType: query
         """
+        a = 0
+        a.value()
         params = request.query_params.dict()
-        resource_list = ResourceModel.objects.filter(**params)
+        resource_list = ResourceModel.objects.filter(**params).values()
         return Response({"result": "success",
                          "data": {"resource_list": resource_list}})
 
@@ -44,7 +48,6 @@ class Resource(APIView):
         try:
             ResourceModel(**form).save()
         except Exception, e:
-
             raise APIException(detail='重复资源id')
         return Response({"result": "success", "data": {}})
 
@@ -65,7 +68,7 @@ class Resource(APIView):
                   paramType: query
         """
         params = request.query_params.dict()
-        update_dict = {"resource_remark": params.get('resource_remark')}
+        update_dict = {"resource_remark": params.pop('resource_remark')}
         ResourceModel.objects.filter(**params).update(**update_dict)
         return Response({"result": "success", "data": {}})
 

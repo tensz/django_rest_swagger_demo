@@ -69,9 +69,9 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-CN'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
@@ -104,18 +104,10 @@ LOGGING = {
         'request_handler': {
             'level': 'DEBUG',
             'class': 'logging.handlers.TimedRotatingFileHandler',
-            'filename': os.path.join(BASE_DIR + '/logs/request/', 'request.log'),
+            'filename': os.path.join(BASE_DIR + '/logs/', 'request.log'),
             'when': 'D',
             'interval': 1,
             'backupCount': 10,
-            'formatter': 'standard',
-        },
-        'error_handler': {
-            'level': 'DEBUG',
-            'class': 'logging.handlers.RotatingFileHandler',
-            'filename': os.path.join(BASE_DIR + '/logs/error/', 'error.log'),
-            'maxBytes': 1024 * 1024 * 50,  # 5 MB
-            'backupCount': 5,
             'formatter': 'standard',
         },
     },
@@ -127,11 +119,6 @@ LOGGING = {
         },
         'request_logger': {
             'handlers': ['request_handler'],
-            'level': 'DEBUG',
-            'propagate': False
-        },
-        'error_logger': {
-            'handlers': ['error_handler'],
             'level': 'DEBUG',
             'propagate': False
         },
