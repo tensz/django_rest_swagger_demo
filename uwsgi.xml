@@ -1,0 +1,14 @@
+<uwsgi>
+	<socket>127.0.0.1:10054</socket>
+    <protocol>uwsgi</protocol>
+    <listen>20480</listen>
+    <buffer-size>64000</buffer-size>
+    <max-requests>102400</max-requests>
+    <so-keepalive>true</so-keepalive>
+    <tcp-nodelay>true</tcp-nodelay>
+    <module>django_rest_swagger_demo.wsgi</module>
+    <processes>20</processes>
+	<pidfile>logs/uwsgi/uwsgi.pid</pidfile>
+	<daemonize>logs/uwsgi/uwsgi.log</daemonize>
+	<touch-reload>logs/uwsgi/uwsgi.reload</touch-reload>
+</uwsgi>

@@ -21,8 +21,6 @@ class Resource(RequestLogViewMixin, APIView):
                   type: string
                   paramType: query
         """
-        a = 0
-        a.value()
         params = request.query_params.dict()
         resource_list = ResourceModel.objects.filter(**params).values()
         return Response({"result": "success",

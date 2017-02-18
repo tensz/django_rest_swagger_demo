@@ -81,6 +81,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 REST_FRAMEWORK = {
     'EXCEPTION_HANDLER': 'django_rest_swagger_demo.restful_config.custom_exception_handler'
 }

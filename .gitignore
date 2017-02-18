@@ -4,3 +4,4 @@ venv/
 logs/
 db.sqlite3
 */migrations/
+static/
