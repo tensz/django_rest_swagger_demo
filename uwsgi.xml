@@ -1,7 +1,7 @@
 <uwsgi>
 	<socket>127.0.0.1:10054</socket>
     <protocol>uwsgi</protocol>
-    <listen>20480</listen>
+    <listen>120</listen>
     <buffer-size>64000</buffer-size>
     <max-requests>102400</max-requests>
     <so-keepalive>true</so-keepalive>
