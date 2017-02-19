@@ -9,6 +9,5 @@
     <module>django_rest_swagger_demo.wsgi</module>
     <processes>20</processes>
 	<pidfile>logs/uwsgi/uwsgi.pid</pidfile>
-	<daemonize>logs/uwsgi/uwsgi.log</daemonize>
 	<touch-reload>logs/uwsgi/uwsgi.reload</touch-reload>
 </uwsgi>

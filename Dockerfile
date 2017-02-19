@@ -10,11 +10,13 @@ WORKDIR /opt
 RUN mkdir -p logs/nginx
 RUN mkdir -p logs/uwsgi
 
-RUN cat nginx.conf >> /etc/nginx/nginx.conf
+COPY nginx.conf >> /etc/nginx/nginx.conf
 RUN pip install -r requirements.txt
 
 RUN python manage.py migrate
 RUN python manage.py collectstatic --noinput
 
 EXPOSE 8000
-CMD ["uwsgi", "-x", "uwsgi.xml"]
+
+CMD ["service","nginx","start", "&", "uwsgi", "-x", "uwsgi.xml"]
+
