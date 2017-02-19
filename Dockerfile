@@ -18,5 +18,5 @@ RUN python manage.py collectstatic --noinput
 
 EXPOSE 8000
 
-CMD ["service","nginx","start", "&&", "uwsgi", "-x", "uwsgi.xml"]
+CMD ["uwsgi", "-x", "uwsgi.xml"]
 
