@@ -8,6 +8,7 @@
     <tcp-nodelay>true</tcp-nodelay>
     <module>django_rest_swagger_demo.wsgi</module>
     <processes>20</processes>
+    <daemonize>logs/uwsgi/uwsgi.log</daemonize>
 	<pidfile>logs/uwsgi/uwsgi.pid</pidfile>
 	<touch-reload>logs/uwsgi/uwsgi.reload</touch-reload>
 </uwsgi>
